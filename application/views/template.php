@@ -181,12 +181,6 @@ function postForm() {
                         <a href="<?php echo base_url().'customer'?>"><i class="fa fa-edit"></i>Customer</a>
                     </li> 
                     <li>
-                        <a href="<?php echo base_url().'status'?>"><i class="fa fa-desktop"></i>Status</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url().'pembayaran'?>"><i class="fa fa-desktop"></i>Pembayaran</a>
-                    </li>
-                    <li>
                         <a href="<?php echo base_url().'tipekamar'?>"><i class="fa fa-desktop"></i>Tipe Kamar</a>
                     </li>
                     <li>
