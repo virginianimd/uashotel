@@ -1,21 +1,21 @@
-                <div class="row">
+<div class="row">
                     <div class="col-md-12">
                         <h2 class="page-header">
-                            Data Customer<small> (Edit, Tambah & Hapus Master)</small>
+                            Customer's
                         </h2>
                     </div>
                 </div> 
                 <!-- /. ROW  -->
- 
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                 <?php echo anchor('customer/post','Tambah Data Customer',array('class'=>'btn btn-danger btn-sm')) ?> 
-                            </div> 
+                                 <?php echo anchor('customer/post','Tambah Customer',array('class'=>'btn btn-danger btn-sm')) ?> 
+                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
@@ -32,19 +32,19 @@
                                         <tbody>
                                         <?php $no=1; foreach ($record->result() as $r) { ?>
                                             <tr class="gradeU">
-                                                <td><?php echo $no ?></td>
-                                                <td><?php echo $r->nama ?></td>
-                                                <td><?php echo $r->notelp ?></td>
-                                                <td><?php echo $r->email ?></td>
-                                                <td><?php echo $r->alamat ?></td>
-                                                <td><?php echo $r->kota ?></td>
-                                                <td><?php echo $r->negara ?></td>
-                                                <td><?php echo $r->nopasspor ?></td>
-
-                                                <td class="center">
-                                                    <?php echo anchor('customer/edit/'.$r->idcustomer,'Edit'); ?> | 
-                                                    <?php echo anchor('customer/delete/'.$r->idcustomer,'Hapus'); ?>
-                                                </td>
+                                            <td><?php echo $no; ?></td>
+                                            <td><?php echo $r->nama ?></td>
+                                            <td><?php echo $r->notelp ?></td>
+                                            <td><?php echo $r->email ?></td>
+                                            <td><?php echo $r->alamat ?></td>
+                                            <td><?php echo $r->kota ?></td>
+                                            <td><?php echo $r->negara ?></td>
+                                            <td><?php echo $r->nopasspor ?></td>
+                                            <td>
+                                            <a  href="<?php echo site_url('customer/edit/'.$r->idcustomer); ?>"
+                                            <i class="fa fa-edit"></i></a> &nbsp;
+                                            <a  href="<?php echo site_url('customer/delete/'.$r->idcustomer);?>" onclick="return confirm('Yakin Ingin Menghapus ?')"> <i class="fa fa-times"></i></a>
+                                          </td>
                                             </tr>
                                         <?php $no++; } ?>
                                         </tbody>
@@ -53,7 +53,6 @@
                                 
                             </div>
                         </div>
-                        <!-- /. PANEL  -->
                     </div>
                 </div>
                 <!-- /. ROW  -->

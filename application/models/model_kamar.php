@@ -34,4 +34,9 @@ class model_kamar extends ci_model{
         $this->db->where('id_kamar',$id);
         $this->db->delete('kamar');
     }
+
+    function tampilkan_data_paging()
+    {
+        return $this->db->query("select * from kamar");
+    } 
 }

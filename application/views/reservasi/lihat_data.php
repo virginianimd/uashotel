@@ -37,8 +37,8 @@
               ?>
           <div class="card-body">
             <div class="table-responsive">
-               <a class="btn btn-success " href="new_reservasi_tambah">Add <i class="fa fa-plus"></i></a><br>
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <?php echo anchor('reservasi/post','Tambah Reservasi',array('class'=>'btn btn-success fa fa-plus')) ?> 
+                <table class="table table-bordered table-hover" id="dataTables-example">
                 <br>
          <thead>
           <tr>
@@ -71,8 +71,8 @@
                         <?php
                         }
                         else if ($r->status_reservasi == 1) { ?>
-                           <a  class="btn btn-danger" href="<?php echo base_url().'admin/new_reservasi_out/'.$r->id_reservasi?>/2"> Proses Check-OUT</a> 
-                           <a  class="btn btn-primary" href="<?php echo base_url().'admin/new_reservasi_perpanjang/'.$r->id_reservasi?>">PERPANJANG</a> 
+                           <a  class="btn btn-danger" href="<?php echo base_url().'reservasi/status/'.$r->id_reservasi?>/2"> Proses Check-OUT</a> 
+                           <a  class="btn btn-primary" href="<?php echo base_url().'reservasi/status/'.$r->id_reservasi?>">PERPANJANG</a> 
                         <?php
                         }
                         else { ?>

@@ -47,7 +47,8 @@ class reservasi extends CI_Controller{
         }
         else{
             $this->load->model('model_reservasi');
-           
+            $this->load->model('model_kamar');
+          
             //$this->load->view('barang/form_input',$data);
             $data['kamar']=$this->model_kamar->tampilkan_data_paging();
             if($id_reservasi!=0){
