@@ -1,20 +1,12 @@
 <?php
-class Model_customer extends CI_Model{
-    
-//     function tampil_data()
-//   {
-//     $query= "SELECT b.barang_id, b.nama_barang, kb.nama, kb.harga
-//             FROM barang as b, customer_barang as kb
-//             WHERE b.idcustomer=kb.idcustomer"; 
-//      return $this->db->query($query);
-//   } 
-    
+class model_customer extends CI_Model{
+
   function tampilkan_data()
   {    
     return $this->db->get('customer');
   }
     
-  function tampilkan_data_paging($halaman,$batas)
+  function tampilkan_data_paging()
   {
       return $this->db->query("select * from customer");
   }     
@@ -61,5 +53,11 @@ class Model_customer extends CI_Model{
     {
         $this->db->where('idcustomer',$id);
         $this->db->delete('customer');
+    }
+
+    function cari($id)
+    {
+        $query= $this->db->get_where('customer',array('nama'=>$id));
+        return $query;
     }
 }

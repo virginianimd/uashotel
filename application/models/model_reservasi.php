@@ -20,8 +20,14 @@ class model_reservasi extends ci_model{
     
     function get_one($id)
     {
-        $param  =   array('id_reservasi'=>$id);
-        return $this->db->get_where('reservasi',$param);
+        $this->db->select('r.*, k.*, c.*, tk.namatipe');
+        $this->db->from('reservasi r');
+        $this->db->join('kamar k','k.id_kamar=r.id_kamar');
+        $this->db->join('customer c','c.idcustomer=r.idcustomer');
+        $this->db->join('tipekamar tk','tk.idtipe=k.idtipe');
+        $this->db->where('id_reservasi',$id);
+        $result=$this->db->get();
+        return $result;
     }
     
     function edit($data,$id)
@@ -43,4 +49,19 @@ class model_reservasi extends ci_model{
         $this->db->where('id_reservasi',$id);
         $this->db->update('reservasi');
     }
+
+    
+    function ReservasiId($id)
+    {
+        $this->db->select('r.*, k.*, c.*, tk.namatipe');
+        $this->db->from('reservasi r');
+        $this->db->join('kamar k','k.id_kamar=r.id_kamar');
+        $this->db->join('customer c','c.idcustomer=r.idcustomer');
+        $this->db->join('tipekamar tk','tk.idtipe=k.idtipe');
+        $this->db->where('id_reservasi',$id);
+        $result=$this->db->get();
+        return $result;
+    }
+ 
+
 }

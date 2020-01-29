@@ -1,15 +1,7 @@
 <?php
 class Model_tipekamar extends CI_Model{
-    
-    function tampil_data()
-  {
-    $query= "SELECT k.idkamar, k.idtipe, tk.idtipe, tk.namatipe
-            FROM kamar as k,tipekamar as tk
-            WHERE k.idtipe=tk.idtipe"; 
-     return $this->db->query($query);
-  } 
-    
-  function tampilkan_data()
+
+    function tampilkan_data()
   {    
     return $this->db->get('tipekamar');
   }

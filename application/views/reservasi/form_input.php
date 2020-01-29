@@ -13,11 +13,10 @@
                 } 
                 ?>
                     
-                      <?php echo form_open_multipart('kamar/post/','class="form-horizontal"'); ?>
+                      <?php echo form_open_multipart('reservasi/post/','class="form-horizontal"'); ?>
                       <div class="form-body">
                         <h3 class="form-section"></h3>
                         <div class="row">
-                          
                           <div class="col-md-6">
                             <div class="form-group">
                               <label class="control-label col-md-4">Tanggal Masuk</label>
@@ -41,69 +40,85 @@
                               </div>
                             </div>
                           </div>
-                          
                         </div>
-                        <div class="row">
+
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label class="control-label col-md-6">No Kamar - Kelas Kamar</label>
+                              <label class="control-label col-md-9">No Kamar - Tipe Kamar</label>
                               <div class="col-md-9">
                                 <select data-placeholder="Select..." name="id_kamar" class="form-control select2me">
-                                  <option value=""></option>          
-                                  <?php
-                                  foreach ($kamar->result() as $k): ?>
-                                  <option value="<?php echo $k->id_kamar;?>"><?php echo $k->no_kamar;?> - <?php echo $k->no_kamar;?></option>
-                                  <?php endforeach; ?>
+                                    <option value=""></option>          
+                                    <?php
+                                    foreach ($kamar->result() as $k): ?>
+                                    <option value="<?php echo $k->id_kamar;?>"><?php echo $k->no_kamar;?> - <?php echo $k->namatipe;?></option>
+                                    <?php endforeach; ?>
                                 </select>
-                                
                               </div>
                             </div>
                           </div>
 
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label class="control-label col-md-3">Nama</label>
-                              <div class="col-md-9">
-                                <input type="text" class="form-control" placeholder="" name="nama_reservasi">
-                                
-                              </div>
+                            <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="control-label col-md-9">Lama</label>
+                              <input type="text" name="lama" class="form-control" placeholder="Lama Inap">
                             </div>
                           </div>
-                          
+                              </div>
+                            </div>
                         </div>
-                        <div class="row">
-                          
+
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label class="control-label col-md-3">Tlp</label>
+                              <label class="control-label col-md-9">Nama</label>
                               <div class="col-md-9">
-                                <input type="text" class="form-control" placeholder="" name="tlp_reservasi">
-                                
+                              <select data-placeholder="Select..." name="idcustomer" class="form-control select2me">
+                                    <option value=""></option>          
+                                    <?php
+                                    foreach ($customer->result() as $c): ?>
+                                    <option value="<?php echo $c->idcustomer;?>"><?php echo $c->nama;?></option>
+                                    <?php endforeach; ?>
+                                  </select>
                               </div>
                             </div>
                           </div>
 
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label class="control-label col-md-3">Alamat</label>
+                              <label class="control-label col-md-4">Telp.</label>
                               <div class="col-md-9">
-                                <input type="text" class="form-control" placeholder="" name="alamat_reservasi">
-                                
+                                  <select data-placeholder="Select..." class="form-control select2me">
+                                    <option value=""></option>          
+                                    <?php
+                                    foreach ($customer->result() as $c): ?>
+                                    <option value="<?php echo $c->idcustomer;?>"><?php echo $c->notelp;?></option>
+                                    <?php endforeach; ?>
+                                  </select>
                               </div>
                             </div>
-                          </div>
-                          
                         </div>
-                        
-
+                        </div>
+                      </div>
+                      <div class="row">
+                      <label class="control-label col-md-4">Alamat</label>
+                              <div class="col-md-9">
+                                  <select data-placeholder="Select..." class="form-control select2me">
+                                    <option value=""></option>          
+                                    <?php
+                                    foreach ($customer->result() as $c): ?>
+                                    <option value="<?php echo $c->idcustomer;?>"><?php echo $c->alamat;?></option>
+                                    <?php endforeach; ?>
+                                  </select>
 
                       </div>
+
                       <div class="form-actions">
                         <div class="row">
                           <div class="col-md-6">
                             <div class="row">
                               <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn btn-success">Save</button>
+                                <input type="submit" name="submit" value="save" class="btn btn-success"/>
                                 </div>
                             </div>
                           </div>
@@ -115,3 +130,5 @@
         </div>
       </div>
    </div>
+
+
